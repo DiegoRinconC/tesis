@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from users.models import User, City
 
 # Create your models here.
 
@@ -18,6 +18,7 @@ class Shop(models.Model):
     brand_shop = models.ForeignKey(BrandShop, on_delete=models.DO_NOTHING, null=True, blank=True)
     modified_date = models.DateField(auto_now=True)
     modified_by = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    city = models.ForeignKey(City, on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return self.shop

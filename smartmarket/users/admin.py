@@ -5,19 +5,39 @@ from .models import User, DocumentType, Country, City, Rol
 
 
 class DocumentTypeAdmin(admin.ModelAdmin):
-    pass
+    exclude = ('modified_by',)
+
+    def save_model(self, request, obj, form, change):
+        obj.modified_by = request.user
+        print(request.user)
+        super().save_model(request, obj, form, change)
 
 
 class CountryAdmin(admin.ModelAdmin):
-    pass
+    exclude = ('modified_by',)
+
+    def save_model(self, request, obj, form, change):
+        obj.modified_by = request.user
+        print(request.user)
+        super().save_model(request, obj, form, change)
 
 
 class CityAdmin(admin.ModelAdmin):
-    pass
+    exclude = ('modified_by',)
+
+    def save_model(self, request, obj, form, change):
+        obj.modified_by = request.user
+        print(request.user)
+        super().save_model(request, obj, form, change)
 
 
 class RolAdmin(admin.ModelAdmin):
-    pass
+    exclude = ('modified_by',)
+
+    def save_model(self, request, obj, form, change):
+        obj.modified_by = request.user
+        print(request.user)
+        super().save_model(request, obj, form, change)
 
 
 admin.site.register(User, UserAdmin)

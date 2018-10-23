@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from users.models import User
 
 # Create your models here.
 
@@ -52,4 +52,4 @@ class Product(models.Model):
     modified_by = models.ForeignKey(User, on_delete=models.DO_NOTHING)
 
     def __str__(self):
-        return self.reference + " " + self.product_type + " " + self.sub_product_type + " " + self.weight_unit + " " + self.unit_measure + " " + self.quantity
+        return f" {self.reference}"
